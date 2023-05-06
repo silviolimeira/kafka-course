@@ -1,0 +1,41 @@
+Apache Kafka + Kafdrop + Docker Compose: montando rapidamente um ambiente 
+para testes
+
+
+https://medium.com/azure-na-pratica/apache-kafka-kafdrop-docker-compose-montando-rapidamente-um-ambiente-para-testes-606cc76aa66
+
+
+$ docker compose up
+
+Kafdrop 
+http://localhost:19000
+
+$ docker exec -it kafka-kafka-1 bash
+
+Baeldun Docker Compose Example:
+https://www.baeldung.com/ops/kafka-docker-setup
+
+===================================================================================
+Curso Alura:
+
+Fazer download do Kafka:
+https://kafka.apache.org/downloads
+
+Executar o zookeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties 
+
+Executar o kafka:
+bin/kafka-server-start.sh config/server.properties
+
+Criando Topico:
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic LOJA
+
+Listando topicos:
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092 
+
+Execuando um console producer:
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic LOJA
+
+Executando o consumer:
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA --from-beginning
