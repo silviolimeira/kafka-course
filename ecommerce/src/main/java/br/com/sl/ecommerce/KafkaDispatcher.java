@@ -7,7 +7,6 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.io.Closeable;
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
@@ -34,7 +33,8 @@ class KafkaDispatcher implements Closeable {
                 ex.printStackTrace();
                 return;
             }
-            System.out.println("sucesso enviando " + data.topic() + ":::partition " + data.partition() + "/ offset " + data.offset() + "/ timestamp " + data.timestamp());
+            System.out.println("sucesso enviando " + data.topic() + ":::partition " + data.partition() + "/ offset "
+                    + data.offset() + "/ timestamp " + data.timestamp());
         };
         producer.send(record, callback).get();
     }
